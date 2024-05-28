@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Seller Properties</title>
+</head>
+<body>
+    <h2>Your Properties</h2>
+    <ul>
+        <li th:each="property : ${properties}">
+            <h3 th:text="${property.title}">Property Title</h3>
+            <p th:text="${property.description}">Property Description</p>
+            <p>Area: <span th:text="${property.area}">Area</span> sqft</p>
+            <p>Bedrooms: <span th:text="${property.numberOfBedrooms}">Bedrooms</span></p>
+            <p>Bathrooms: <span th:text="${property.numberOfBathrooms}">Bathrooms</span></p>
+            <a th:href="@{/edit/{id}(id=${property.id})}">Edit</a>
+            <a th:href="@{/delete/{id}(id=${property.id})}">Delete</a>
+        </li>
+    </ul>
+</body>
+</html>
